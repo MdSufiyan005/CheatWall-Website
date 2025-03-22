@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #ede9fe, #ffffff); /* Light purple to white gradient */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+h2 {
+  color: rgb(79,70,229);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form .field {
+  margin-bottom: 1.2rem;
+}
+
+form .help-text {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgb(79,70,229);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5e55e6; /* A slightly lighter purple */
+}
+
+.alternate {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.alternate a {
+  color: rgb(79,70,229);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.alternate a:hover {
+  text-decoration: underline;
+}

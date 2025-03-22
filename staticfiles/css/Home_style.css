@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* Light purple-to-white gradient background */
+    background: linear-gradient(135deg, #ede9fe, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+  }
+
+  /* Top Navigation */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(79, 70, 229); /* Purple */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .navbar .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .profile-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Profile Icon with Tooltip */
+  .profile-icon {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: rgb(79, 70, 229);
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-icon .tooltip {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: rgb(79, 70, 229);
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: none;
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+  
+  .profile-icon:hover .tooltip {
+    display: block;
+  }
+  
+
+  .logout-link {
+    background-color: #fff;
+    color: rgb(79, 70, 229);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .logout-link:hover {
+    background-color: rgb(79, 70, 229);
+    color: #fff;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    color: rgb(79, 70, 229);
+    padding: 2rem 2rem 3rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+  }
+
+  /* Cards Container */
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 0 2rem;
+  }
+
+  /* Card Styles */
+  .card {
+    background-color: #fff;
+    width: 280px;
+    min-height: 200px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: rgb(79, 70, 229);
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    color: rgb(79, 70, 229);
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0;
+  }
+
+  /* Footer (Optional) */
+  .footer {
+    text-align: center;
+    color: #555;
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: #ede9fe;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    .card {
+      width: 80%;
+    }
+  }

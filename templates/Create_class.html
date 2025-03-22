@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Test Classroom</title>
+  <link rel="stylesheet" href="{% static "css/Create_class.css" %}">
+</head>
+<body>
+  <div class="form-wrapper">
+    <h1>Create Test Classroom</h1>
+    <form method="post" action="{% url 'create_test_classroom' %}">
+      {% csrf_token %}
+      <!-- This will render all form fields, including App_Name -->
+      {{ form.as_p }}
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

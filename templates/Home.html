@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/Home_style.css'%}" />
+</head>
+<body>
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="brand">CheatWall</div>
+    <div class="profile-area">
+      <div class="profile-icon">
+        U
+        <div class="tooltip">{{ user.username|default:"Guest" }}</div>
+      </div>
+      <a href="{% url 'logout_view' %}" class="logout-link">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome Back!</h1>
+    <p>Manage your test classes with ease.</p>
+  </section>
+
+  <!-- Cards Container -->
+  <section class="cards-container">
+    <!-- Card 1 -->
+
+    <a href="{% url 'create_test_classroom' %}" style="text-decoration: none;">
+    <div class="card">
+      <div class="card-icon">✏️</div>
+      <h2>Create Class</h2>
+      <p>Set up a new test class quickly.</p>
+    </div>
+  </a>
+    <!-- Card 2 -->
+    <a href="{% url 'Student_Response_view' %}" style="text-decoration: none;">
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h2>View Classes</h2>
+        <p>Access and manage all existing test classes.</p>
+      </div>
+    </a>
+
+     <!-- Card 3 for manageing the code created -->
+     <a href="{% url 'Test_Codes' %}" style="text-decoration: none;">
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <h2>Manage Test Codes</h2>
+            <p>Access and manage all existing test Codes.</p>
+          </div>
+        </a>
+  </section>
+
+</body>
+</html>

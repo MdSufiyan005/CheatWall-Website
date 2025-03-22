@@ -1,0 +1,1 @@
+web: gunicorn CheatWall.wsgi --log-file -

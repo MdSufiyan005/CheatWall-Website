@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Responses Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/Dashboard_style.css' %}" />
+    <style>
+      /* Additional styles for the enlarged image modal */
+      .enlarge-modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .enlarge-modal img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .close-enlarge {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 1200;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Student Responses Dashboard</h1>
+    </header>
+    <div class="container">
+      <table class="dashboard">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Enrolment Number</th>
+            <th>Risk Score</th>
+            <th>Images</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for response in content_stu %}
+          <tr>
+            <td>{{ response.Name }}</td>
+            <td>{{ response.Enrolment_no }}</td>
+            <td>{{ response.RiskScore }}</td>
+            <td>
+              <button
+                class="toggle-btn"
+                onclick="openModal({{ forloop.counter0 }})"
+              >
+                View Images
+              </button>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4">No responses found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal Structure for image grid -->
+    <div id="imageModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Images</h2>
+        <div id="modalImages" class="modal-img-grid">
+          <!-- Images will be inserted here dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Enlarge Modal Structure -->
+    <div id="enlargeModal" class="enlarge-modal">
+      <span class="close-enlarge" onclick="closeEnlargeModal()">&times;</span>
+      <img id="enlargeImage" src="" alt="Enlarged Image" />
+    </div>
+
+    <script>
+      // Use the JSON-encoded row_images from context
+      var rowImages = {{ row_images|safe }};
+      
+      function openModal(index) {
+        var modal = document.getElementById("imageModal");
+        var modalImages = document.getElementById("modalImages");
+        // Clear previous images
+        modalImages.innerHTML = "";
+        // Populate modal with images from the selected row
+        var images = rowImages[index];
+        if (images && images.length > 0) {
+          images.forEach(function(url) {
+            var img = document.createElement("img");
+            img.src = url;
+            // When an individual image is clicked, open it in the enlarge modal
+            img.onclick = function() {
+              openEnlargeModal(url);
+            };
+            modalImages.appendChild(img);
+          });
+        } else {
+          modalImages.innerHTML = "<p>No Images Available</p>";
+        }
+        modal.style.display = "flex";
+      }
+      
+      function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+      }
+      
+      function openEnlargeModal(url) {
+        var enlargeModal = document.getElementById("enlargeModal");
+        var enlargeImage = document.getElementById("enlargeImage");
+        enlargeImage.src = url;
+        enlargeModal.style.display = "flex";
+      }
+      
+      function closeEnlargeModal() {
+        document.getElementById("enlargeModal").style.display = "none";
+      }
+      
+      // Close modal when clicking outside the modal content
+      window.onclick = function(event) {
+        var modal = document.getElementById("imageModal");
+        var enlargeModal = document.getElementById("enlargeModal");
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+        if (event.target == enlargeModal) {
+          enlargeModal.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

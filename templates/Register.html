@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static "css/regis_style.css" %}">
+</head> 
+<body>
+  <div class="form-container">
+    <h2>Create an Account</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="field">
+        <label for="id_username">Username:</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+          <div class="error-text">{{ form.username.errors }}</div>
+        {% endif %}
+      </div>
+      <div class="field">
+        <label for="id_email">Email address:</label>
+        {{ form.email }}
+        {% if form.email.errors %}
+          <div class="error-text">{{ form.email.errors }}</div>
+        {% endif %}
+      </div>
+      <div class="field">
+        <label for="id_password1">Password:</label>
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+          <div class="error-text">{{ form.password1.errors }}</div>
+        {% endif %}
+      </div>
+      <div class="field">
+        <label for="id_password2">Password confirmation:</label>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+          <div class="error-text">{{ form.password2.errors }}</div>
+        {% endif %}
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <div class="alternate">
+      <p>Already have an account? <a href="{% url 'login_view' %}">Login</a></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Successful</title>
+    <link rel="stylesheet" href="{% static 'css/success.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submission Successful!</h1>
+        <p>Your encoded access code is:</p>
+        <div class="encoded-code">{{ encoded_data }}</div>
+    </div>
+    <a href="{% url 'Home_page' %}" class="home-btn">Return Home</a>
+</body>
+</html>

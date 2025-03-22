@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/log_style.css' %}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="field">
+        <label for="id_username">Username:</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+          <div class="error-text">{{ form.username.errors }}</div>
+        {% endif %}
+      </div>
+      <div class="field">
+        <label for="id_password">Password:</label>
+        {{ form.password }}
+        {% if form.password.errors %}
+          <div class="error-text">{{ form.password.errors }}</div>
+        {% endif %}
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="alternate">
+      <p>Don't have an account? <a href="{% url 'Register_view' %}">Register</a></p>
+    </div>
+  </div>
+</body>
+</html>

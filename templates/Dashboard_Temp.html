@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enter Access Code</title>
+  <link rel="stylesheet" href="{% static 'css/Dashboard_Temp.css' %}">
+</head>
+<body>
+  <h1>Enter Access Code</h1>
+  <div class="container">
+    <form method="post" action="{% url 'Student_Response_view' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+    {% if form.errors %}
+      <div class="errors">
+        {{ form.errors }}
+      </div>
+    {% endif %}
+    {% if content_stu %}
+      <div class="responses">
+        <h2>Student Responses:</h2>
+        <ul>
+          {% for response in content_stu %}
+            <li>{{ response.Name }} - {{ response.Enrolment_no }} - Risk: {{ response.RiskScore }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
