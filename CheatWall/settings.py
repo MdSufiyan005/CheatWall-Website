@@ -14,6 +14,7 @@ from pathlib import Path
 from decouple import config
 import dj_database_url
 import pymysql
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -85,14 +86,32 @@ LOGIN_URL = '/login/'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": config("mydatabase"),
+#         "USER": config("mydatabaseuser"),
+#         "PASSWORD": config("mypassword"),
+#         "HOST": config("Host"),
+#         "PORT": config("Port"),
+#     }
+# }
+
+import dj_database_url
+DATABASE_URL=config("DATABASE_URL")
+DATABASES={
+    "default":dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
 }
 
-
+# Add this line of code to prevent error caused by Django 40 version about trusted origins 
+CSRF_TRUSTED_ORIGINS=['https://mysite-django-production.up.railway.app']
 # DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.mysql',
