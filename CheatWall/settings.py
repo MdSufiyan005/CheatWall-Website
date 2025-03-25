@@ -26,12 +26,12 @@ pymysql.install_as_MySQLdb()
 SECRET_KEY = 'django-insecure-8w1bvb#-5jktqcl3nwk+bx8tp4(qk8n3dvw-9(w(3nyj(ronr='
 # SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = True
 # DEBUG = False
 # ALLOWED_HOSTS = [os.environ.get('APP_DOMAIN')]
 # IS_PRODUCTION = os.environ.get('DJANGO_PRODUCTION', 'False') == 'True'
 
-ALLOWED_HOSTS = ['your-app-name.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['charlie-trust-fits-driven.trycloudflare.com', '127.0.0.1']
 
 
 
@@ -80,18 +80,19 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'CheatWall.wsgi.application'
 LOGIN_URL = '/login/'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # DATABASES = {
 #     "default": {
@@ -104,14 +105,14 @@ LOGIN_URL = '/login/'
 #     }
 # }
 
-import dj_database_url
-DATABASE_URL=config("DATABASE_URL")
-DATABASES={
-    "default":dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
-}
+# import dj_database_url
+# DATABASE_URL=config("DATABASE_URL")
+# DATABASES={
+#     "default":dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
+# }
 
 # Add this line of code to prevent error caused by Django 40 version about trusted origins 
-CSRF_TRUSTED_ORIGINS=['https://mysite-django-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ["https://charlie-trust-fits-driven.trycloudflare.com"]
 # DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.mysql',

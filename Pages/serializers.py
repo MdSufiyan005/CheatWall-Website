@@ -12,7 +12,7 @@ class StudentResponseSerializer(serializers.Serializer):
     RiskScore = serializers.CharField(max_length=200)
     # For input, accept a list of URLs.
     Image_URL = serializers.ListField(
-        child=serializers.CharField(max_length=200),
+        child=serializers.CharField(max_length=800),
         allow_empty=True
     )
     # Use write_only so it's only used during creation

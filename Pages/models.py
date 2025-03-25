@@ -21,7 +21,7 @@ class Student_Response(models.Model):
     Name = models.CharField(max_length=150)
     Enrolment_no = models.CharField(max_length=150)
     RiskScore = models.CharField(max_length=100)
-    Image_URL = models.URLField(max_length=500)  
+    Image_URL = models.URLField(max_length=800)  
     Test_ClassRoom = models.ForeignKey(Create_Test_ClassRoom, on_delete=models.CASCADE)
 
     def __str__(self):
