@@ -74,7 +74,7 @@ CheatWall is a web-based test evaluation system designed to facilitate virtual p
 - **Access Code:**
   - ![Access Code](pictures/Accesscode.png)
 - **Managing Access Code of Different Virtual Class:**
-  - ![Managing Access Codes](pictures/Managing-Virtualclasscode.png)
+  - ![Managing Access Codes](pictures/Managing-Virtualclasscodes.png)
 - **Managing Student Response Result:**
   - ![Managing Student Responses](pictures/Studentsresponse.png)
 
