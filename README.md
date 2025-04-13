@@ -28,7 +28,7 @@ CheatWall is a web-based test evaluation system designed to facilitate virtual p
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your_repository_link>
+    git clone https://github.com/MdSufiyan005/CheatWall-Website
     cd CheatWall
     ```
 
@@ -66,17 +66,17 @@ CheatWall is a web-based test evaluation system designed to facilitate virtual p
 ## Sample Screenshots
 
 * **Main Page:**
-    * `![Main Page](pictures\Main-page.png)`
+    * ![Main Page](pictures\Main-page.png)
 * **User Main Page:**
-    * `![User Main Page](pictures\User-page.png)`
+    * ![User Main Page](pictures\User-page.png)
 * **Creating Virtual Class:**
-    * `![Create Virtual Class](pictures\Creating-Virtualclass.png)`
+    * ![Create Virtual Class](pictures\Creating-Virtualclass.png)
 * **Access Code:**
-    * `![Access Code](pictures\Accesscode.png)`
+    * ![Access Code](pictures\Accesscode.png)
 * **Managing Access Code of Different Virtual Class:**
-    * `![Managing Access Codes](pictures\Managing-Virtualclasscode.png)`
+    * ![Managing Access Codes](pictures\Managing-Virtualclasscode.png)
 * **Managing Student Response Result:**
-    * `![Managing Student Responses](pictures\Studentsresponse.png)`
+    * ![Managing Student Responses](pictures\Studentsresponse.png)
 
 
 ## Usage
